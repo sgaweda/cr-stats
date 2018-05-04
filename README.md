@@ -1,2 +1,3 @@
 # cr-stats
-clash royale stats site
+Clash Royale statistic site 
+
