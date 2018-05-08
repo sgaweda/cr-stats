@@ -1,7 +1,7 @@
+import { Button } from 'semantic-ui-react'
 import React from 'react'
-
 export default class App extends React.Component {
     render() {
-        return <p>test</p>
+        return <Button>Semantic Test :)</Button>
     }
 }
