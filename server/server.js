@@ -3,6 +3,7 @@ const cors = require('cors') // for testing
 const path = require('path')
 const bodyParser = require('body-parser')
 const app = express();
+const apiToken = require('./keys.json').devToken
 
 const publicPath = path.join(__dirname, '..', 'public');
 
@@ -13,6 +14,7 @@ app.use(cors())
 app.use((req, res, next) => {
     // app.use defines new express middleware
     next();
+    console.log(apiToken)
 })
 
 app.get('/test', (req, res) => {
