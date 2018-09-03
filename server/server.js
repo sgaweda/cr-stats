@@ -3,7 +3,15 @@ const cors = require('cors') // for testing
 const path = require('path')
 const bodyParser = require('body-parser')
 const app = express();
+const baseUrl = require('./api.json').baseUrl
 const apiToken = require('./keys.json').devToken
+const axios = require('axios')
+
+const config = {
+    headers: {
+        authorization: `Bearer ${apiToken}`
+    }
+}
 
 const publicPath = path.join(__dirname, '..', 'public');
 
@@ -14,11 +22,13 @@ app.use(cors())
 app.use((req, res, next) => {
     // app.use defines new express middleware
     next();
-    console.log(apiToken)
 })
 
-app.get('/test', (req, res) => {
-    res.send({body: 'success'})
+app.get('/api/test', (req, res) => {
+    axios.get(`${baseUrl}/players/%23Q2JCUU9`, config).then(response => {
+        res.send({body: response.data})
+    }).catch(err => console.log(err))
+    
 });
 
 app.get('/about', (req, res) => {
