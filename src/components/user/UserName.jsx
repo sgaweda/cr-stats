@@ -1,3 +1,5 @@
+import React from 'react'
+
 export default class UserName extends React.Component {
     constructor(props) {
         super(props)
@@ -7,7 +9,7 @@ export default class UserName extends React.Component {
     render() {
         return (
             <div className="user-name">
-                {this.state.userName}
+                Name: {this.state.userName}
             </div>
         )
     }

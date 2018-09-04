@@ -1,11 +1,14 @@
 import { Button, Input } from 'semantic-ui-react'
 import React from 'react'
 import axios from 'axios'
+import User from './User.jsx'
+
 export default class App extends React.Component {
     constructor(props) {
         super(props)
         this.state = {
-            tag: ''
+            tag: '',
+            userInfo: null
         }
     }
     handleInputChange(e) {
@@ -26,9 +29,14 @@ export default class App extends React.Component {
     }
 
     render() {
-        return <div>
+        console.log(this.state.userInfo)
+        const user = this.state.userInfo ? <User {...this.state.userInfo} /> : null
+        return (
+            <div>
                 <Input focus action={{ content: 'search', onClick: this.handleClick }}
                         onChange={e => this.handleInputChange(e)} placeholder='Search...' />
+                {user}
             </div>
+        )
     }
 }

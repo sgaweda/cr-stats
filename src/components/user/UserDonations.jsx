@@ -1,13 +1,15 @@
+import React from 'react'
+
 export default class UserDonations extends React.Component {
     constructor(props) {
         super(props)
-        this.state = {userName: props.userDonations}
+        this.state = {userDonations: props.userDonations}
     }
     
     render() {
         return (
             <div className="user-donations">
-                {this.state.userDonations}
+                Donations: {this.state.userDonations}
             </div>
         )
     }
