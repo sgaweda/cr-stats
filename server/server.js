@@ -25,10 +25,10 @@ app.use((req, res, next) => {
 })
 
 app.get('/api/test', (req, res) => {
-    axios.get(`${baseUrl}/players/%23Q2JCUU9`, config).then(response => {
+    console.log(req.query)
+    axios.get(`${baseUrl}/players/%23${req.query.tag}`, config).then(response => {
         res.send({body: response.data})
-    }).catch(err => console.log(err))
-    
+    }).catch(err => res.send({body: 'error'}))
 });
 
 app.get('/about', (req, res) => {
