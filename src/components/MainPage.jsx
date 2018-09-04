@@ -21,6 +21,7 @@ export default class App extends React.Component {
     handleClick = (e) => {
         console.log('called' + this.state.tag)
         axios.get(`/api/test?tag=${this.state.tag}`).then((response) => {
+            this.setState(state => ({userInfo: response.data.body}))
             console.log(response.data)
         })
         .catch(error => {
