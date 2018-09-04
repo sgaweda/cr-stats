@@ -12,7 +12,7 @@ export default class UserTournament extends React.Component {
     render() {
         return (
             <div className="user-tournament">
-                Tournament battle count: {this.state.tournamentBattleCount}
+                Tournament battle count: {this.state.tournamentBattleCount}<br />
                 Tournament cards won: {this.state.tournamentCardsWon}
             </div>
         )

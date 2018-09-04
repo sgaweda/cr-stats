@@ -18,24 +18,27 @@ export default class User extends React.Component {
     render() {
         return (
             <div className="user">
-                <UserName userName={this.state.userInfo.name} />
-                <UserTag userTag={this.state.userInfo.tag} />
-                <UserClan userClan={this.state.userInfo.clan} />
-                <UserRecord
-                    battleCount = {this.state.userInfo.battleCount}
-                    wins = {this.state.userInfo.wins}
-                    losses = {this.state.userInfo.losses}
-                    threeCrownWins = {this.state.userInfo.threeCrownWins}
+                <UserName name={this.state.name} />
+                <UserTag tag={this.state.tag} />
+                <UserClan clan={this.state.clan} />
+                <UserRecord {... {
+                    battleCount: this.state.battleCount,
+                    wins: this.state.wins,
+                    losses: this.state.losses,
+                    threeCrownWins: this.state.threeCrownWins,
+                }}
+                    
                 />
-                <UserFavouriteCard favourite={this.state.userInfo.currentFavouriteCard} />
-                <UserDonations userDonations={this.state.userInfo.totalDonations} />
-                <UserTournament
-                    tournamentBattleCount = {this.state.userInfo.tournamentBattleCount}
-                    tournamentCardsWon = {this.state.userInfo.tournamentCardsWon}
+                <UserFavouriteCard favourite={this.state.currentFavouriteCard} />
+                <UserDonations userDonations={this.state.totalDonations} />
+                <UserTournament {...{
+                    tournamentBattleCount: this.state.tournamentBattleCount,
+                    tournamentCardsWon: this.statetournamentCardsWon,
+                }}
                 />
                 <UserChallenge {...{
-                    challengeCardsWon: this.state.userInfo.challengeCardsWon,
-                    challengeMaxWins: this.state.userInfo.challengeMaxWins,
+                    challengeCardsWon: this.state.challengeCardsWon,
+                    challengeMaxWins: this.state.challengeMaxWins,
                 }}
                 />
             </div>

@@ -12,7 +12,7 @@ export default class UserChallenge extends React.Component {
     render() {
         return (
             <div className="user-challenge">
-                Challenge cards won: {this.state.challengeCardsWon}
+                Challenge cards won: {this.state.challengeCardsWon}<br />
                 Challenge max wins: {this.state.challengeMaxWins}
             </div>
         )

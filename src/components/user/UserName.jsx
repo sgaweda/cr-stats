@@ -3,13 +3,13 @@ import React from 'react'
 export default class UserName extends React.Component {
     constructor(props) {
         super(props)
-        this.state = {userName: props.userName}
+        this.state = {name: props.name}
     }
     
     render() {
         return (
             <div className="user-name">
-                Name: {this.state.userName}
+                Name: {this.state.name}
             </div>
         )
     }
