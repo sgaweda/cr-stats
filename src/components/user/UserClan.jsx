@@ -1,3 +1,5 @@
+import React from 'react'
+
 export default class UserClan extends React.Component {
     constructor(props) {
         super(props)
@@ -7,7 +9,7 @@ export default class UserClan extends React.Component {
     render() {
         return (
             <div className="user-clan">
-                {this.state.userClanName}
+                Clan: {this.state.userClanName}
             </div>
         )
     }

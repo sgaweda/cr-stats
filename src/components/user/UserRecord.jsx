@@ -1,10 +1,12 @@
+import React from 'react'
+
 export default class UserRecord extends React.Component {
     constructor(props) {
         super(props)
         this.state = {
-            wins: props.record.wins,
-            losses: props.record.losses,
-            threeCrownwins: props.record.threeCrownWins,
+            wins: props.wins,
+            losses: props.losses,
+            threeCrownwins: props.threeCrownWins,
         }
     }
     

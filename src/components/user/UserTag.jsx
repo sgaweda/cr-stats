@@ -1,3 +1,5 @@
+import React from 'react'
+
 export default class UserTag extends React.Component {
     constructor(props) {
         super(props)
@@ -7,7 +9,7 @@ export default class UserTag extends React.Component {
     render() {
         return (
             <div className="user-tag">
-                {this.state.userTag}
+                Tag: {this.state.userTag}
             </div>
         )
     }
