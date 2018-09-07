@@ -63,4 +63,4 @@ typings/
 # Webpack build files 
 /public/*
 
-/server/keys.json
+/server/keys/*
