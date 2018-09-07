@@ -8,7 +8,7 @@ const apiToken = require('./keys/keys.json').devToken
 const axios = require('axios')
 const admin = require('firebase-admin');
 
-const serviceAccount = require('./keys/cr-stats-b45c0-9003a1a0d2d8.json');
+const serviceAccount = require('./keys/cr-stats-service-account.json');
 
 admin.initializeApp({
   credential: admin.credential.cert(serviceAccount)
