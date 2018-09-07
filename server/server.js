@@ -4,8 +4,17 @@ const path = require('path')
 const bodyParser = require('body-parser')
 const app = express();
 const baseUrl = require('./api.json').baseUrl
-const apiToken = require('./keys.json').devToken
+const apiToken = require('./keys/keys.json').devToken
 const axios = require('axios')
+const admin = require('firebase-admin');
+
+const serviceAccount = require('./keys/cr-stats-b45c0-9003a1a0d2d8.json');
+
+admin.initializeApp({
+  credential: admin.credential.cert(serviceAccount)
+});
+
+const db = admin.firestore();
 
 const config = {
     headers: {
@@ -26,7 +35,14 @@ app.use((req, res, next) => {
 
 app.get('/api/test', (req, res) => {
     console.log(req.query)
-    axios.get(`${baseUrl}/players/%23${req.query.tag}`, config).then(response => {
+    const tag = req.query.tag
+    axios.get(`${baseUrl}/players/%23${tag}`, config).then(response => {
+        const playerDoc = db.collection('users').doc(tag);
+
+        const setPlayer = playerDoc.set(response.data)
+
+        setPlayer.then(x => console.log('success'))
+            .catch(x => console.log('fail: ' + x))
         res.send({body: response.data})
     }).catch(err => res.send({body: 'error'}))
 });
